@@ -1,0 +1,17 @@
+.test {
+  text-align: center;
+  color: black;
+}
+
+.test ul {
+  list-style: none;
+}
+
+.test a {
+  text-decoration: none;
+  color: black;
+}
+
+.test a:link {
+  text-decoration: none;
+}
