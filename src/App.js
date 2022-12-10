@@ -15,7 +15,14 @@ const App = () => {
       setArticleInfo(newArticleInfo);
     }
     loadArticleInfo();
-  });
+
+    const interval = setInterval(() => {
+      loadArticleInfo()
+    }, 10000);
+
+    return()=>clearInterval(interval);
+    
+  }, []);
 
   return (
     <h1>{articleInfo}</h1>
