@@ -1,10 +1,10 @@
 import React from "react";
-import SignIn from "./SignIn";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './../css/LogInHeader.css';
-
+import { Link } from 'react-router-dom';
 const BlogControl = () => {
+  
   const [articleCount, setArticleCount] = useState(0);
 
   //Automatically fetches articles count every 10s from database through endpoint api/articles
@@ -16,12 +16,11 @@ const BlogControl = () => {
     }
     loadArticleCount();
 
-    const interval = setInterval(() => {
-      loadArticleCount()
-    }, 10000);
-    //The interval is cleared when the user navigates to another page
-    return()=>clearInterval(interval);
-
+    // const interval = setInterval(() => {
+    //   loadArticleCount()
+    // }, 10000);
+    // //The interval is cleared when the user navigates to another page
+    // return()=>clearInterval(interval);
   }, []);
 
   const handleClick = () => {
@@ -29,7 +28,6 @@ const BlogControl = () => {
   }
   return (
     <>
-    <SignIn />
     <section className='container'>
     <div className="test">
       <h1> Welcome to the Cuban blog!</h1>
@@ -37,7 +35,7 @@ const BlogControl = () => {
       <h4>Articles published, and counting</h4>
       <ul>
         <li>
-          <p>{<button onClick={handleClick}>Sign In / Sign Up</button>}</p>
+          <Link to='/sign-in'>{<button onClick={handleClick}>Sign In / Sign Up</button>}</Link>
         </li>
       </ul>
     </div>
