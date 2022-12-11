@@ -4,7 +4,7 @@ import axios from 'axios';
 import './../css/LogInHeader.css';
 import { Link } from 'react-router-dom';
 const BlogControl = () => {
-  
+
   const [articleCount, setArticleCount] = useState(0);
 
   //Automatically fetches articles count every 10s from database through endpoint api/articles
