@@ -1,20 +1,17 @@
 import React from 'react';
+import BlogControl from './BlogControl';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
-// import BlogControl from './BlogControl';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import LogInHeader from './LogInHeader';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-const App = () => {
-
+const App = () => { 
   return (
     <Router>
-    <LogInHeader />
-    <Routes>
-      <Route path="/sign-in" element={<SignIn />} />
-      <Route path="/sign-up" element={<SignUp />} />
-      {/* <Route path="/" element={<BlogControl />} /> */}
-    </Routes>
+      <Routes>
+        <Route path="/" element={<BlogControl /> } />
+        <Route path="/sign-in" element={<SignIn /> } />
+        <Route path="/sign-up" element={<SignUp /> } />
+      </Routes>
     </Router>
     );
 }
