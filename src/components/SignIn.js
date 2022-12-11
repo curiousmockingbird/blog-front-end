@@ -1,40 +1,51 @@
 import React from "react";
 import './../css/SignIn.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 
-function doSignIn(event) {
-
-}
-function doSignUp(event) {
-
-}
 
 const SignIn = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
+  const navigate = useNavigate();
+
+  const logIn = async () => {
+    try {
+      await signInWithEmailAndPassword(getAuth(), email, password);
+      navigate('/');
+    } catch (e) {
+      setError(e.message)
+    }
+  }
   return (
     <>
       <section className='container'>
         <div className="test">
           <Link to="/">Back to welcome page!</Link>
           <h1> Sign in</h1>
-          <form onSubmit={doSignIn}>
+          {error && <p className="error">{error}</p>}
             <input
               type='text'
               name='signinEmail'
-              placeholder='email' /><br></br>
+              placeholder='email' 
+              value={email}
+              onChange={e => setEmail(e.target.value)}/><br></br>
             <input
               type='password'
               name='signinPassword'
-              placeholder='Password' /><br></br>
-            <button type='submit'>Sign in</button>
-          </form>
+              placeholder='Password' 
+              value={password}
+              onChange={e => setPassword(e.target.value)}/><br></br>
+            <button onClick={logIn}>Sign in</button>
         </div>
 
       </section>
       <section className='container'>
         <div className="test">
           <h1> Sign up</h1>
-          <form onSubmit={doSignUp}>
             <input
               type='text'
               name='signinEmail'
@@ -44,7 +55,6 @@ const SignIn = () => {
               name='signinPassword'
               placeholder='Password' /><br></br>
             <button type='submit'>Sign up</button>
-          </form>
         </div>
       </section>
     </>
