@@ -42,7 +42,7 @@ const BlogControl = () => {
   } else if (user) {
 
     return (      
-      <Welcome userEmail={user.email}/>
+      <Welcome userEmail={user.email} />
     )
   }
 }
