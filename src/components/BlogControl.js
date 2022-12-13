@@ -4,6 +4,7 @@ import useUser from './../hooks/useUser';
 import Welcome from './Welcome';
 import Prompt from './Prompt';
 import Nav from './Nav';
+import './../css/output.css';
 
 const BlogControl = () => {
   const [articleCount, setArticleCount] = useState(0);
@@ -32,8 +33,8 @@ const BlogControl = () => {
 
     return (      
       <>
-    <Welcome userEmail={user.email} />
     <Nav />
+    <Welcome userEmail={user.email} />
     </>
     )
   }

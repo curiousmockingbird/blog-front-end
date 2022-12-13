@@ -17,15 +17,13 @@ const Welcome = (props) => {
   }
 
   return (      
-    <section className='container' id='welcome'>
-    <div className="test">
+    <div className="test container welcome">
       <h1> Welcome<br></br>{props.userEmail}!</h1>
       <h1>Sign Out</h1>
     {signOutSuccess}
     <br />
     <button onClick={doSignOut}>Sign out</button>
     </div>
-    </section>
   )
 }
 Welcome.propTypes = {

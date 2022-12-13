@@ -22,8 +22,7 @@ const SignIn = () => {
   }
   return (
     <>
-      <section className='container'>
-        <div className="test">
+        <div className="sign-in container">
           <Link to="/">Back to welcome page!</Link>
           <h1> Sign in</h1>
           {error && <p className="error">{error}</p>}
@@ -42,7 +41,6 @@ const SignIn = () => {
             <button onClick={logIn}>Sign in</button><br></br>
           <Link to="/sign-up">Sign up if you don't have an account yet!</Link>
         </div>
-      </section>
     </>
   )
 }

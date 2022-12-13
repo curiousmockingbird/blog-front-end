@@ -1,32 +1,37 @@
-.test {
+.sign-in {
   text-align: center;
   color: black;
   width: 50vw;
 }
-.test ul {
+.sign-in ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-.test a {
+.sign-in a {
   color: #333;
   text-decoration: none;
 }
-.test a:link {
+.sign-in a:link {
   text-decoration: none;
 }
 
-section {
-  width: auto;
-  /* border: 4px solid #2d2d2d; */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+.navbar {
+  height: 4rem;
+  background-color: #2d2d2d;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
 }
-section div {
+
+.welcome {
+  width: auto;
   border: 4px solid #2d2d2d;
   height: 40vh;
+  background-color: aquamarine;
+  height: 100vh;
+  margin-top: 0;
 }
 
 /*# sourceMappingURL=output.css.map */

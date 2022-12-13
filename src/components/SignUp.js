@@ -28,8 +28,7 @@ const SignUp = () => {
 
   return (
     <>
-      <section className='container'>
-        <div className="test">
+        <div className="sign-in container">
           <Link to="/">Back to welcome page!</Link>
           <h1> Sign up!</h1>
           {error && <p className="error">{error}</p>}
@@ -53,7 +52,6 @@ const SignUp = () => {
               onChange={e => setConfirmPassword(e.target.value)}/><br></br>
             <button onClick={createAccount}>Sign up</button>
         </div>
-      </section>
     </>
   )
 }
