@@ -1,13 +1,13 @@
-import React from "react";
 import axios  from 'axios';
-import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { React, useState, useEffect } from 'react';
 import useUser from './../hooks/useUser';
 import Welcome from './Welcome';
+import Prompt from './Prompt';
+import Nav from './Nav';
 
 const BlogControl = () => {
   const [articleCount, setArticleCount] = useState(0);
-  const { user, isLoading } = useUser();
+  const { user } = useUser();
 
   useEffect(() => {
     const loadArticleCount = async () => {
@@ -26,23 +26,15 @@ const BlogControl = () => {
 
   if (!user) {
     return (
-      <section className='container'>
-      <div className="test">
-        <h1> Welcome to the Cuban blog!</h1>
-        <h3>{articleCount}</h3>
-        <h4>Articles published, and counting</h4>
-        <ul>
-          <li>
-            <Link to='/sign-in'>{<button>Sign In / Sign Up</button>}</Link>
-          </li>
-        </ul>
-      </div>
-      </section>
+    <Prompt articleCount={articleCount}/>
     )
   } else if (user) {
 
     return (      
-      <Welcome userEmail={user.email} />
+      <>
+    <Welcome userEmail={user.email} />
+    <Nav />
+    </>
     )
   }
 }

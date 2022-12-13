@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './../css/LogInHeader.css';
+import './../css/output.css';
 import { signOut } from 'firebase/auth';
 import { auth } from './../firebase.js';
 import PropTypes from "prop-types";
@@ -17,7 +17,7 @@ const Welcome = (props) => {
   }
 
   return (      
-    <section className='container'>
+    <section className='container' id='welcome'>
     <div className="test">
       <h1> Welcome<br></br>{props.userEmail}!</h1>
       <h1>Sign Out</h1>
