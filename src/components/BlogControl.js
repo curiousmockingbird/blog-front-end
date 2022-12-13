@@ -1,17 +1,14 @@
 import React from "react";
-import { useState, useEffect } from 'react';
-// import { db, auth } from './../firebase';
-import axios from 'axios';
-import './../css/LogInHeader.css';
+import axios  from 'axios';
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import useUser from './../hooks/useUser';
+import Welcome from './Welcome';
 
 const BlogControl = () => {
-
   const [articleCount, setArticleCount] = useState(0);
   const { user, isLoading } = useUser();
 
-  //Automatically fetches articles count every 10s from database through endpoint api/articles
   useEffect(() => {
     const loadArticleCount = async () => {
       const response = await axios.get(`/api/articles/`);
@@ -45,11 +42,7 @@ const BlogControl = () => {
   } else if (user) {
 
     return (      
-      <section className='container'>
-      <div className="test">
-        <h1> Welcome to the Cuban blog <br></br>{user.email}!</h1>
-      </div>
-      </section>
+      <Welcome userEmail={user.email}/>
     )
   }
 }

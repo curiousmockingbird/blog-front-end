@@ -4,13 +4,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 
-
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-
   const navigate = useNavigate();
+
+
 
   const logIn = async () => {
     try {
@@ -39,22 +39,8 @@ const SignIn = () => {
               placeholder='Password' 
               value={password}
               onChange={e => setPassword(e.target.value)}/><br></br>
-            <button onClick={logIn}>Sign in</button>
-        </div>
-
-      </section>
-      <section className='container'>
-        <div className="test">
-          <h1> Sign up</h1>
-            <input
-              type='text'
-              name='signinEmail'
-              placeholder='email' /><br></br>
-            <input
-              type='password'
-              name='signinPassword'
-              placeholder='Password' /><br></br>
-            <button type='submit'>Sign up</button>
+            <button onClick={logIn}>Sign in</button><br></br>
+          <Link to="/sign-up">Sign up if you don't have an account yet!</Link>
         </div>
       </section>
     </>
