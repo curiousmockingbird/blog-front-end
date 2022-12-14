@@ -4,7 +4,7 @@ import './../css/output.css';
 
 const Prompt = (props) => {
   return (
-    <div className='sign-in container'>
+    <div className='sign-in'>
       <h1> Welcome to the Cuban blog!</h1>
       <h3>{props.articleCount}</h3>
       <h4>Articles published, and counting</h4>

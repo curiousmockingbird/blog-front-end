@@ -28,7 +28,7 @@ const SignUp = () => {
 
   return (
     <>
-    <div className='sign-in-parent container'>
+    <div className='sign-in-parent'>
         <div className="sign-in ">
           <Link to="/">Back to welcome page!</Link>
           <h1> Sign up!</h1>

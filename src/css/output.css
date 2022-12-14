@@ -10808,16 +10808,26 @@ textarea.form-control-lg {
   font-weight: 600;
   letter-spacing: 0.1rem;
   text-transform: uppercase;
+  margin-bottom: 1em;
 }
 
 .welcome {
-  width: auto;
-  height: auto;
+  color: #ea868f;
   background-color: #cfe2ff;
   text-align: center;
+  margin-bottom: 1em;
 }
 .welcome button {
   margin: 1em;
+}
+
+.articles-list {
+  background-color: #cfe2ff;
+  text-align: left;
+}
+
+.article {
+  height: 4em;
 }
 
 /*# sourceMappingURL=output.css.map */

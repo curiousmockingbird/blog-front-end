@@ -2,9 +2,11 @@
 $breakpoints: 
 ("xs": 0px, 
 "sm": 480px, 
-"md": 720px
+"md": 720px,
 "lg": 960px,
 "xl": 1200px);
+
+$primary-color: $red-300;
 
 @mixin xs {
     @media (min-width: map-get($breakpoints, "xs")) {
@@ -34,4 +36,28 @@ $breakpoints:
     @media (min-width: map-get($breakpoints, "xl")) {
         @content;
     }
+}
+
+@mixin breakpoint($bp) {
+    @media (min-width: $bp) {
+        @content;
+    }
+}
+
+.responsive-test {
+  @include xs {
+    // background-color: $primary-color;
+  }
+  @include sm {
+    // background-color: blue;
+  }
+  @include md {
+    // background-color: green;
+  }
+  @include lg {
+    // background-color: yellow;
+  }
+  @include xl {
+    // background-color: purple;
+  }  
 }
