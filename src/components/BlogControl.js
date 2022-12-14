@@ -13,6 +13,7 @@ const BlogControl = () => {
   const { user } = useUser();
 
   useEffect(() => {
+    //This useEffect returns the number of articles from the database
       const loadArticleCount = async () => {
       const response = await axios.get(`/api/articles/`);
       const newArticleCount = response.data;
