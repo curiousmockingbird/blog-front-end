@@ -4,8 +4,7 @@ import './../css/output.css';
 
 const Prompt = (props) => {
   return (
-    <section className='container'>
-    <div className="test">
+    <div className='sign-in container'>
       <h1> Welcome to the Cuban blog!</h1>
       <h3>{props.articleCount}</h3>
       <h4>Articles published, and counting</h4>
@@ -15,7 +14,6 @@ const Prompt = (props) => {
         </li>
       </ul>
     </div>
-    </section>
   )
 }
 Prompt.prototype = {

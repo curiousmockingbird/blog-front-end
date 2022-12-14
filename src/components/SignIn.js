@@ -22,7 +22,8 @@ const SignIn = () => {
   }
   return (
     <>
-        <div className="sign-in container">
+    <div className='sign-in-parent container'>
+        <div className="sign-in">
           <Link to="/">Back to welcome page!</Link>
           <h1> Sign in</h1>
           {error && <p className="error">{error}</p>}
@@ -38,9 +39,10 @@ const SignIn = () => {
               placeholder='Password' 
               value={password}
               onChange={e => setPassword(e.target.value)}/><br></br>
-            <button onClick={logIn}>Sign in</button><br></br>
+            <button onClick={logIn} className='btn btn-outline-primary'>Sign in</button><br></br>
           <Link to="/sign-up">Sign up if you don't have an account yet!</Link>
         </div>
+      </div>
     </>
   )
 }

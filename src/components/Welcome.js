@@ -17,12 +17,12 @@ const Welcome = (props) => {
   }
 
   return (      
-    <div className="test container welcome">
+    <div className="welcome container">
       <h1> Welcome<br></br>{props.userEmail}!</h1>
       <h1>Sign Out</h1>
     {signOutSuccess}
     <br />
-    <button onClick={doSignOut}>Sign out</button>
+    <button onClick={doSignOut} className='btn btn-primary'>Sign out</button>
     </div>
   )
 }

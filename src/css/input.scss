@@ -1,10 +1,33 @@
+// Custom.scss
+// Option A: Include all of Bootstrap
+
+// Include any default variable overrides here (though functions won't be available)
+
+@import "./../../node_modules/bootstrap/scss/bootstrap.scss";
+
+// Then add additional custom code here
+
 $font-stack: Helvetica, sans-serif;
-$primary-color: #333;
+$primary-color: $red-300;
+$background-color: $blue-100;
+$main-text-alignment: center;
+$button-margin: 1em;
+
+
+
+
+.sign-in-parent {
+  position: relative;
+  height: 100vh;
+}
 
 .sign-in {
-  text-align: center;
+  height: auto;
+  position: relative;
+  top: 10em;
+  text-align: $main-text-alignment;
   color: black;
-  width: 50vw;
+  background-color: $background-color;
 
   ul {
     list-style: none;
@@ -21,6 +44,14 @@ $primary-color: #333;
     text-decoration: none;
   }
 
+  button {
+    margin: $button-margin;
+  }
+
+  h1 {
+    color: $primary-color;
+  }
+
 }
 
 .navbar {
@@ -34,9 +65,12 @@ $primary-color: #333;
 
 .welcome {
   width: auto;
-  border: 4px solid #2d2d2d;
-  height: 40vh;
-  background-color: aquamarine;
-  height: 100vh;
-  margin-top: 0;
+  height: auto;
+  background-color: $background-color;
+  text-align: $main-text-alignment;
+  
+  button {
+    margin: $button-margin;
+  }
+
 }
