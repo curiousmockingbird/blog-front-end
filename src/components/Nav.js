@@ -6,11 +6,11 @@ import './../css/output.css';
 
 const Nav = () => {
   return (
-    <div className='navbar'>
-      <Link to="/"><FaHome /></Link>
-      <Link to="/about"><FaQuestion /></Link>
-      <Link to="/account"><RiAccountCircleFill /></Link>
-    </div>
+      <ul className='navbar'>
+        <li><Link to="/"><FaHome /></Link></li>
+        <li><Link to="/about"><FaQuestion /></Link></li>
+        <li><Link to="/account"><RiAccountCircleFill /></Link></li>
+      </ul>
   )
 }
 

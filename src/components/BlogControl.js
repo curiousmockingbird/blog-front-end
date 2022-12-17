@@ -39,6 +39,8 @@ const BlogControl = () => {
     loadArticlesList();
   }, []);
 
+ 
+
   if (!user) {
     return (
     <Prompt articleCount={articleCount}/>
@@ -48,7 +50,7 @@ const BlogControl = () => {
       <div className="loading">Loading...</div>
     );
   }else if (user) {
-
+  
     return (      
       <>
     <Welcome userEmail={user.email} />

@@ -58,13 +58,7 @@ $button-margin: 1em;
 }
 
 .navbar {
-  height: 4rem;
-  background-color: $red-700;
   font-size: 1.9rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  margin-bottom: 0.6em;
-  color: $red-100;
 
   a {
     color: $primary-color;
@@ -73,6 +67,15 @@ $button-margin: 1em;
 
   a:link {
     text-decoration: none;
+  }
+
+  ul {
+      display: flex;
+      justify-content: space-between;
+  }
+
+  li {
+    display: inline-block;
   }
 }
 
@@ -93,6 +96,15 @@ $button-margin: 1em;
   text-align: $article-list-text-alignment;
 }
 
-.article {
-  height: 4em;
+.remove-link-style {
+
+  a {
+    color: $primary-color;
+  }
+
+  a:link {
+  text-decoration : none;
+  }
 }
+
+

@@ -31,13 +31,7 @@
 }
 
 .navbar {
-  height: 4rem;
-  background-color: #842029;
   font-size: 1.9rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  margin-bottom: 0.6em;
-  color: #f8d7da;
 }
 .navbar a {
   color: #ea868f;
@@ -45,6 +39,13 @@
 }
 .navbar a:link {
   text-decoration: none;
+}
+.navbar ul {
+  display: flex;
+  justify-content: space-between;
+}
+.navbar li {
+  display: inline-block;
 }
 
 .welcome {
@@ -62,8 +63,11 @@
   text-align: left;
 }
 
-.article {
-  height: 4em;
+.remove-link-style a {
+  color: #ea868f;
+}
+.remove-link-style a:link {
+  text-decoration: none;
 }
 
 /*# sourceMappingURL=output.css.map */
