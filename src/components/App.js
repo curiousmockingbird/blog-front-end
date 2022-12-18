@@ -5,6 +5,7 @@ import SignUp from './SignUp';
 import Article from './Article';
 import ArticlesList from './ArticlesList';
 import Account from './Account';
+import About from './About';
 import Nav from './Nav';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/sign-in" element={<SignIn /> } />
         <Route path="/sign-up" element={<SignUp /> } />
         <Route path="/account" element={<Account /> } />
+        <Route path="/about" element={<About /> } />
         <Route path="/articles/:name" element={<Article /> } />
         <Route path="/articlesList" element={<ArticlesList /> } />
       </Routes>

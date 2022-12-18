@@ -1,32 +1,54 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import {React, useState, useEffect } from 'react';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
   
-function Article(props) {
+const Article = () => {
+  const { name } = useParams();
+
+  const [article, setArticle] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+    const response = await axios.get(`/api/articles/${name}/`);
+    const newArticle = response.data;
+    setArticle(newArticle);
+    setIsLoading(false);
+    }
+    fetchData();
+  }, [name]);
+
+  console.log(typeof(article.title));
+
   // Conditional rendering of tags
-  let tagContent = null;
-  if (props.tags.length > 1) {
-    tagContent = props.tags.map((tag) => (
-      `#${tag} `
-      ));
+  // let tagContent = null;
+  // if (props.tags.length > 1) {
+  //   tagContent = props.tags.map((tag) => (
+  //     `#${tag} `
+  //     ));
+  // } else {
+  //   tagContent = `#${props.tags}`;
+  // }
+// console.log(article.content.join(' '));
+  if (isLoading) {
+    return (
+      <div className='article'>
+        <hr />
+        <h3>Loading...</h3>
+      </div>
+    );
   } else {
-    tagContent = `#${props.tags}`;
+    return (
+      <div className='article'>
+        <hr />
+        <h3>{article.title}</h3>
+        <h6>{article.tags}</h6>
+        {article.content.map((paragraph,i) => (
+          <p key={i}>{paragraph}</p>
+        ))}
+      </div>
+    );
   }
-  console.log(tagContent[tagContent.length-1].slice(0,-1));
-
-  return (
-    <div className='article'>
-      <hr />
-      <h3>{props.title}</h3>
-      <p>{props.content}</p>
-      <p>{tagContent}</p>
-    </div>
-  );
 }
-
-Article.prototype = {
-  title: PropTypes.string,
-  content: PropTypes.string,
-  tags: PropTypes.string
-};
 
 export default Article;
