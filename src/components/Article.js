@@ -39,7 +39,7 @@ const Article = () => {
     );
   } else {
     return (
-      <div className='article'>
+      <div className='article '>
         <hr />
         <h3>{article.title}</h3>
         <h6>{article.tags}</h6>
