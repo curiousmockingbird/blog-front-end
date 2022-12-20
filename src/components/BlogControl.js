@@ -34,6 +34,7 @@ const BlogControl = () => {
   
     return (      
       <>
+    <hr />
     <Welcome userEmail={user.email} />
     <ArticlesList />
     </>

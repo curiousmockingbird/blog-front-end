@@ -1,6 +1,7 @@
 import {React, useState, useEffect } from 'react';
 import axios  from 'axios';
 import { Link } from 'react-router-dom';
+import headerImg from './../img/header.jpg';
 
 const ArticlesList = () => {
   const [articlesList, setArticlesList] = useState({});
@@ -23,10 +24,22 @@ const ArticlesList = () => {
       </div>
     );
   } else {
-
-    console.log(articlesList);
     
     return (
+      <>
+
+      <header className='row mb-2 mt-2'>
+      <div className='p-5 text-center bg-image' style={{ backgroundImage: `url(${headerImg})`, height: 200, backgroundSize:"contain" }}>
+          <div className='d-flex justify-content-center align-items-center h-100'>
+            <div className='text-white'>
+              <a className='btn btn-outline-light btn-lg' href='#!' role='button'>
+                Call to action
+              </a>
+            </div>
+          </div>
+      </div>
+    </header>
+
         <div className='row remove-link-style'>{Object.values(articlesList).map((article) => (
             <Link key={article.name}to ={`/articles/${article.name}` } className='col-md-4'>
               <div className='card mb-2'>
@@ -34,12 +47,15 @@ const ArticlesList = () => {
               <div className='card-body articles-list'>
               <h5 className='card-title'>{article.title}</h5>
               <p className='card-text'>{article.content[0].substring(0,150)}</p>
-              <h6>{article.tags}</h6>
+              <h6>{article.tags.map((tag, i) => 
+                <span key={i} className='tags'># {tag} </span>
+              )}</h6>
               </div>
               </div>
             </Link>
         ))}
       </div>
+      </>
     );
   }
 

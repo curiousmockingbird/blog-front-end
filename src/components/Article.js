@@ -1,7 +1,8 @@
 import {React, useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-  
+import CommentsList from './CommentsList';
+
 const Article = () => {
   const { name } = useParams();
 
@@ -11,14 +12,18 @@ const Article = () => {
   useEffect(() => {
     const fetchData = async () => {
     const response = await axios.get(`/api/articles/${name}/`);
-    const newArticle = response.data;
-    setArticle(newArticle);
+    const updatedArticle = response.data;
+    setArticle(updatedArticle);
     setIsLoading(false);
     }
     fetchData();
-  }, [name]);
+  },[name]);
 
-  console.log(typeof(article.title));
+  const addUpVote = async () => {
+    const response = await axios.put(`/api/articles/${name}/upVotes`);
+    const newArticle = response.data;
+    setArticle(newArticle);
+  }
 
   // Conditional rendering of tags
   // let tagContent = null;
@@ -39,15 +44,22 @@ const Article = () => {
     );
   } else {
     return (
+      <>
       <div className='article '>
         <hr />
         <h3>{article.title}</h3>
-        <h6>{article.tags}</h6>
+        <h3>{article.upVotes}</h3>
+        <button onClick={addUpVote}>Add upvote</button>
+        <h6>{article.tags.map((tag, i) => 
+          <span key={i} className='tags'># {tag} </span>
+        )}</h6>
         {article.content.map((paragraph,i) => (
           <p key={i}>{paragraph}</p>
         ))}
       </div>
-    );
+      <CommentsList comments={article.comments}/>
+      </>
+    ); 
   }
 }
 

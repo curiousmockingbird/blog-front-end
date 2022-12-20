@@ -6,7 +6,7 @@ const Welcome = (props) => {
 
   return (      
     <div className="welcome row">
-      <h3> Welcome<br></br>{props.userEmail}!</h3>
+      <h5> Welcome, {props.userEmail}!</h5>
     </div>
   )
 }

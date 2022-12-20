@@ -31,7 +31,7 @@
 }
 
 .navbar {
-  font-size: 1.9rem;
+  font-size: 1.5rem;
 }
 .navbar a {
   color: #ea868f;
@@ -50,9 +50,7 @@
 
 .welcome {
   color: #ea868f;
-  background-color: #cfe2ff;
   text-align: center;
-  margin-bottom: 1em;
 }
 .welcome button {
   margin: 1em;
@@ -61,6 +59,13 @@
 .articles-list {
   background-color: #cfe2ff;
   text-align: left;
+}
+.articles-list .tags {
+  font-size: 9pt;
+  display: inline-block;
+  background-color: #ea868f;
+  color: white;
+  border-radius: 0.5em;
 }
 
 .remove-link-style a {

@@ -58,7 +58,7 @@ $button-margin: 1em;
 }
 
 .navbar {
-  font-size: 1.9rem;
+  font-size: 1.5rem;
 
   a {
     color: $primary-color;
@@ -81,10 +81,8 @@ $button-margin: 1em;
 
 .welcome {
   color: $primary-color;
-  background-color: $background-color;
   text-align: $main-text-alignment;
-  margin-bottom: 1em;
-  
+
   button {
     margin: $button-margin;
   }
@@ -94,6 +92,14 @@ $button-margin: 1em;
 .articles-list {
   background-color: $background-color;
   text-align: $article-list-text-alignment;
+
+  .tags {
+    font-size: 9pt;
+    display: inline-block;
+    background-color: $primary-color;
+    color: white;
+    border-radius: 0.5em;
+  }
 }
 
 .remove-link-style {
@@ -106,6 +112,7 @@ $button-margin: 1em;
   text-decoration : none;
   }
 }
+
 
 
 
