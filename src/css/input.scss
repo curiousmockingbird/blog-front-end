@@ -27,7 +27,7 @@ $button-margin: 1em;
 .sign-in {
   height: auto;
   position: relative;
-  top: 10em;
+  top: 5em;
   text-align: $main-text-alignment;
   color: black;
   background-color: $background-color;
@@ -93,13 +93,16 @@ $button-margin: 1em;
   background-color: $background-color;
   text-align: $article-list-text-alignment;
 
-  .tags {
-    font-size: 9pt;
-    display: inline-block;
-    background-color: $primary-color;
-    color: white;
-    border-radius: 0.5em;
-  }
+}
+
+.tags {
+  margin: 0 0.4em;
+  padding: 0 0.2em;
+  font-size: 9pt;
+  display: inline-block;
+  background-color: $primary-color;
+  color: white;
+  border-radius: 0.5em;
 }
 
 .remove-link-style {
@@ -111,6 +114,30 @@ $button-margin: 1em;
   a:link {
   text-decoration : none;
   }
+}
+
+.article-header {
+  text-align: $main-text-alignment;
+}
+
+.prompt {
+  color: $primary-color;
+  background-color: $background-color;
+  text-align: $main-text-alignment;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    text-decoration: none;
+  }
+}
+
+.votes {
+  color: $primary-color;
 }
 
 

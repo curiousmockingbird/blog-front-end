@@ -4,13 +4,12 @@ import './../css/output.css';
 
 const Prompt = (props) => {
   return (
-    <div className='sign-in'>
+    <div className='row d-flex justify-content-center prompt'>
       <h1> Welcome to the Cuban blog!</h1>
-      <h3>{props.articleCount}</h3>
-      <h4>Articles published, and counting</h4>
+      <h4>{props.articleCount}<br></br> Articles published, and counting!</h4>
       <ul>
         <li>
-          <Link to='/sign-in'>{<button>Sign In / Sign Up</button>}</Link>
+          <Link to='/sign-in'>{<button className="btn btn-outline-primary mt-1 mb-2">Sign In / Sign Up</button>}</Link>
         </li>
       </ul>
     </div>

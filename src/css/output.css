@@ -6,7 +6,7 @@
 .sign-in {
   height: auto;
   position: relative;
-  top: 10em;
+  top: 5em;
   text-align: center;
   color: black;
   background-color: #cfe2ff;
@@ -60,7 +60,10 @@
   background-color: #cfe2ff;
   text-align: left;
 }
-.articles-list .tags {
+
+.tags {
+  margin: 0 0.4em;
+  padding: 0 0.2em;
   font-size: 9pt;
   display: inline-block;
   background-color: #ea868f;
@@ -73,6 +76,28 @@
 }
 .remove-link-style a:link {
   text-decoration: none;
+}
+
+.article-header {
+  text-align: center;
+}
+
+.prompt {
+  color: #ea868f;
+  background-color: #cfe2ff;
+  text-align: center;
+}
+.prompt ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.prompt li {
+  text-decoration: none;
+}
+
+.votes {
+  color: #ea868f;
 }
 
 /*# sourceMappingURL=output.css.map */

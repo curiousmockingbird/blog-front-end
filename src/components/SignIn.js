@@ -38,7 +38,7 @@ const SignIn = () => {
     return (
       <>
       <div className='sign-in-parent'>
-          <div className="sign-in responsive-test">
+          <div className="sign-in">
             <Link to="/">Back to welcome page!</Link>
             <h1> Sign in</h1>
             {error && <p className="error">{error}</p>}

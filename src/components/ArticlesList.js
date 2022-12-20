@@ -24,10 +24,8 @@ const ArticlesList = () => {
       </div>
     );
   } else {
-    
     return (
       <>
-
       <header className='row mb-2 mt-2'>
       <div className='p-5 text-center bg-image' style={{ backgroundImage: `url(${headerImg})`, height: 200, backgroundSize:"contain" }}>
           <div className='d-flex justify-content-center align-items-center h-100'>

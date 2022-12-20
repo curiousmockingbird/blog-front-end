@@ -12,23 +12,27 @@ const BlogControl = () => {
 
   useEffect(() => {
     //This useEffect returns the number of articles from the database
-      const loadArticleCount = async () => {
-      const response = await axios.get(`/api/articles/`);
-      const newArticleCount = response.data;
-      setArticleCount(newArticleCount);
+    const loadArticleCount = async () => {
+    const response = await axios.get(`/api/articles/`);
+    const newArticleCount = response.data;
+    setArticleCount(newArticleCount);
     }
     loadArticleCount();
 
-      const interval = setInterval(() => {
-        loadArticleCount()
-      }, 10000);
-      //The interval is cleared when the user navigates to another page
-      return()=>clearInterval(interval);  
+    // const interval = setInterval(() => {
+    // loadArticleCount()
+    // }, 10000);
+    // //The interval is cleared when the user navigates to another page
+    // return()=>clearInterval(interval);  
+    
   }, []);
 
   if (!user) {
     return (
+    <>
     <Prompt articleCount={articleCount}/>
+    <ArticlesList />
+    </>
     )
   } else if (user) {
   
