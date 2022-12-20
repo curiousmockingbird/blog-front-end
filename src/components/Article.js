@@ -6,7 +6,7 @@ import CommentsList from './CommentsList';
 const Article = () => {
   const { name } = useParams();
 
-  const [article, setArticle] = useState({});
+  const [article, setArticle] = useState({}, {upVotes: 0, comments: []});
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -17,12 +17,15 @@ const Article = () => {
     setIsLoading(false);
     }
     fetchData();
-  },[name]);
+    if (!isLoading) {
+      fetchData();
+    }
+  }, [isLoading, name]);
 
   const addUpVote = async () => {
     const response = await axios.put(`/api/articles/${name}/upVotes`);
-    const newArticle = response.data;
-    setArticle(newArticle);
+    const updatedArticle = response.data;
+    setArticle(updatedArticle);
   }
 
   // Conditional rendering of tags
@@ -48,7 +51,7 @@ const Article = () => {
       <div className='article '>
         <hr />
         <h3>{article.title}</h3>
-        <h3>{article.upVotes}</h3>
+        <h3>This article has {article.upVotes}</h3>
         <button onClick={addUpVote}>Add upvote</button>
         <h6>{article.tags.map((tag, i) => 
           <span key={i} className='tags'># {tag} </span>
