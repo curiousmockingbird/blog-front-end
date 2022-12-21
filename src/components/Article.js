@@ -11,6 +11,7 @@ const Article = () => {
 
   const [article, setArticle] = useState({}, {upVotes: 0, comments: []});
   const [isLoading, setIsLoading] = useState(true);
+
   const { user, userIsLoading } = useUser();
 
   useEffect(() => {

@@ -8,8 +8,9 @@ const CommentsList = ({ comments }) => {
       <>
       <h3>Comments:</h3>
       {comments.map(comment => (
-          <div className="comment" key={comment.postedBy + ': ' + comment.text}>
-              <h4>{comment.postedBy}</h4>
+          <div className="comment" key={comment.postedBy + ': ' + comment.date}>
+              <p className="mb-0">On {comment.date}</p>
+              <p>{comment.postedBy} said:</p>
               <p>{comment.text}</p>
               <hr />
           </div>
