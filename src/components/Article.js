@@ -11,23 +11,24 @@ const Article = () => {
 
   const [article, setArticle] = useState({}, {upVotes: 0, comments: []});
   const [isLoading, setIsLoading] = useState(true);
-  const { user } = useUser();
+  const { user, userIsLoading } = useUser();
 
   useEffect(() => {
     const fetchData = async () => {
-    const response = await axios.get(`/api/articles/${name}/`);
+    const token = user && await user.getIdToken();
+    const headers = token ? { authtoken: token } : {};
+    const response = await axios.get(`/api/articles/${name}/`, {headers});
     const updatedArticle = response.data;
     setArticle(updatedArticle);
     setIsLoading(false);
     }
     fetchData();
-    if (!isLoading) {
-      fetchData();
-    }
-  }, [isLoading, name]);
+  }, [name, user]);
 
   const addUpVote = async () => {
-    const response = await axios.put(`/api/articles/${name}/upVotes`);
+    const token = user && await user.getIdToken();
+    const headers = token ? {authtoken: token} : {};
+    const response = await axios.put(`/api/articles/${name}/upVotes`, null, {headers});
     const updatedArticle = response.data;
     setArticle(updatedArticle);
   }

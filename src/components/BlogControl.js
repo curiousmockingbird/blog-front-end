@@ -13,7 +13,9 @@ const BlogControl = () => {
   useEffect(() => {
     //This useEffect returns the number of articles from the database
     const loadArticleCount = async () => {
-    const response = await axios.get(`/api/articles/`);
+      const token = user && await user.getIdToken();
+      const headers = token ? {authtoken: token} : {};
+    const response = await axios.get(`/api/articles/`, {headers});
     const newArticleCount = response.data;
     setArticleCount(newArticleCount);
     }
@@ -24,8 +26,8 @@ const BlogControl = () => {
     // }, 10000);
     // //The interval is cleared when the user navigates to another page
     // return()=>clearInterval(interval);  
-    
-  }, []);
+
+  }, [user]);
 
   if (!user) {
     return (

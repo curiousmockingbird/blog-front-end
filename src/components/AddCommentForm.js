@@ -1,20 +1,24 @@
 import { useState } from 'react';
 import axios from 'axios';
+import useUser from './../hooks/useUser';
 
 const AddCommentForm = ({articleName, onArticleUpdated}) => {
   const [name, setName] = useState('');
   const [commentText, setCommentText] = useState('');
-  
+  const { user } = useUser();
   const addComment = async () => {
     // if form input is empty, the comment is not added to the database
     if (name === '' || commentText === '') {
       return;
     // if form input is not empty, the comment is added to the database  
     } else {
+      const token = user && await user.getIdToken();
+      const headers = token ? {authtoken: token} : {};
       const response = await axios.post(`/api/articles/${articleName}/comments`, {
         postedBy: name,
         text: commentText
-      });
+      }, {headers});
+
       const updatedArticle = response.data;
       onArticleUpdated(updatedArticle);
       setName('');

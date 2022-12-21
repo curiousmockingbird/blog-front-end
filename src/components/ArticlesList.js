@@ -2,26 +2,32 @@ import {React, useState, useEffect } from 'react';
 import axios  from 'axios';
 import { Link } from 'react-router-dom';
 import headerImg from './../img/header.jpg';
+import useUser from '../hooks/useUser';
 
 const ArticlesList = () => {
   const [articlesList, setArticlesList] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [count, setCount] = useState(9);
+  const { user } = useUser();
 
   useEffect(() => {
     // READ only the first 9 articles from collection
     const fetchData = async () => {
-    const response = await axios.get('/api/articles-list/');
+    const token = user && await user.getIdToken();
+    const headers = token ? {authtoken: token} : {};
+    const response = await axios.get('/api/articles-list/', { headers });
     const newArticlesList = response.data;
     setArticlesList(newArticlesList);
     setIsLoading(false);
     }
     fetchData();
-  }, []);
+  }, [user]);
   
   // READ next 9 articles from collection, and so on
     const loadMore = async () => {
-      const response = await axios.get(`/api/articles-list/${count}/`);
+      const token = user && await user.getIdToken();
+    const headers = token ? {authtoken: token} : {};
+      const response = await axios.get(`/api/articles-list/${count}/`, { headers });
       const newArticlesList = response.data;
       setArticlesList(newArticlesList);
       setCount(count + 9);
