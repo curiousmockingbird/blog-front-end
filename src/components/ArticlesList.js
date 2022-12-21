@@ -6,8 +6,10 @@ import headerImg from './../img/header.jpg';
 const ArticlesList = () => {
   const [articlesList, setArticlesList] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [count, setCount] = useState(9);
 
   useEffect(() => {
+    // READ only the first 9 articles from collection
     const fetchData = async () => {
     const response = await axios.get('/api/articles-list/');
     const newArticlesList = response.data;
@@ -16,7 +18,15 @@ const ArticlesList = () => {
     }
     fetchData();
   }, []);
-
+  
+  // READ next 9 articles from collection, and so on
+    const loadMore = async () => {
+      const response = await axios.get(`/api/articles-list/${count}/`);
+      const newArticlesList = response.data;
+      setArticlesList(newArticlesList);
+      setCount(count + 9);
+    }
+  
   if (isLoading) {
     return (
       <div className='row'>
@@ -52,6 +62,9 @@ const ArticlesList = () => {
               </div>
             </Link>
         ))}
+      </div>
+      <div className='row'>
+        <button onClick={loadMore} className='btn btn-outline-primary col-5'>Load more</button>
       </div>
       </>
     );
