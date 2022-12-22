@@ -57,12 +57,9 @@ const AddCommentForm = ({articleName, onArticleUpdated}) => {
                 required
               />
             </label><br></br>
-            {/* <input
-              type="hidden"
-              value={commentDate}
-              onChange={(event) => setCommentDate(event.target.value)}
-            /> */}
-            <button onClick={addComment} className='btn btn-outline-primary'>Add comment</button>
+            {user
+            ? <button onClick={addComment} className='btn btn-outline-primary'>Add comment</button>
+            : <button onClick={addComment} className='btn btn-outline-primary' disabled>Log in to add comment</button>}
           </form>
         </div>
       </div>

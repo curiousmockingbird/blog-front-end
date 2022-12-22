@@ -9,7 +9,7 @@ const Prompt = (props) => {
       <h4>{props.articleCount}<br></br> Articles published, and counting!</h4>
       <ul>
         <li>
-          <Link to='/sign-in'>{<button className="btn btn-outline-primary mt-1 mb-2">Sign In / Sign Up</button>}</Link>
+          <Link to='/sign-in'>{<button className="btn btn-outline-primary mb-2">Sign In / Sign Up</button>}</Link>
         </li>
       </ul>
     </div>

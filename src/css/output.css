@@ -1,12 +1,4 @@
-.sign-in-parent {
-  position: relative;
-  height: 100vh;
-}
-
 .sign-in {
-  height: auto;
-  position: relative;
-  top: 5em;
   text-align: center;
   color: black;
   background-color: #cfe2ff;
@@ -32,6 +24,7 @@
 
 .navbar {
   font-size: 1.5rem;
+  background-color: #cfe2ff;
 }
 .navbar a {
   color: #ea868f;
@@ -39,10 +32,6 @@
 }
 .navbar a:link {
   text-decoration: none;
-}
-.navbar ul {
-  display: flex;
-  justify-content: space-between;
 }
 .navbar li {
   display: inline-block;

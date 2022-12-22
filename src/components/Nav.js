@@ -8,7 +8,7 @@ const Nav = () => {
   return (
       <div className='row'> 
       <ul className='navbar'>
-        <li><Link to="/"><FaHome /></Link></li>
+        <li><Link to="/"><FaHome/></Link></li>
         <li><Link to="/about"><FaQuestion /></Link></li>
         <li><Link to="/account"><RiAccountCircleFill /></Link></li>
       </ul>

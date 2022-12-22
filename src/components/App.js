@@ -13,7 +13,7 @@ const App = () => {
   return (
     <div className="App container">
     <Router>
-      <div className='row'><Nav /></div>
+      <div ><Nav /></div>
       <Routes>
         <Route path="/" element={<BlogControl /> } />
         <Route path="/sign-in" element={<SignIn /> } />

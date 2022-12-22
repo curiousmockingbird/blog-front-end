@@ -64,10 +64,10 @@ const Article = () => {
       <div className='row d-flex justify-content-center article-header'>
         <hr />
         <h3>{article.title}</h3>
-        <h6>This article has <span className='votes'> {article.upVotes} </span></h6>
+        <h6>This article has <span className='votes'> {article.upVotes}</span> up-vote(s)</h6>
         {user
         ? <button onClick={addUpVote} className='btn btn-outline-primary col-5'>{isUpvoted ? 'Up-vote' : 'Already up-voted!'}</button>
-        : <Link to='/sign-in'>{<button className='btn btn-outline-primary'>Log in to upvote</button>}</Link>}
+        : <Link to='/sign-in'>{<button className='btn btn-outline-primary'>Log in to up-vote</button>}</Link>}
         <h6>{article.tags.map((tag, i) => 
           <span key={i} className='tags'># {tag} </span>
         )}</h6>
