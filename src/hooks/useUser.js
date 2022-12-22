@@ -3,15 +3,16 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 const useUser = () => {
   const [user, setUser] = useState(null);
-  const [userIsLoading, setUserIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(getAuth(), user => {
       setUser(user);
-      setUserIsLoading(false);
+      setIsLoading(false);
     });
     return () => unsubscribe();
   }, []);
-  return { user, userIsLoading };
+
+  return { user, isLoading };
 }
 export default useUser;

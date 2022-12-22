@@ -10,21 +10,23 @@ const Article = () => {
   const { name } = useParams();
 
   const [article, setArticle] = useState({}, {upVotes: 0, comments: []});
-  const [isLoading, setIsLoading] = useState(true);
-
-  const { user, userIsLoading } = useUser();
+  const [isLoadingTwo, setIsLoadingTwo] = useState(true);
+  const { user, isLoading } = useUser();
+  const [isUpvoted, setIsUpvoted] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
     const token = user && await user.getIdToken();
     const headers = token ? { authtoken: token } : {};
-    const response = await axios.get(`/api/articles/${name}/`, {headers});
+    const response = await axios.get(`/api/articles/${name}`, {headers});
     const updatedArticle = response.data;
     setArticle(updatedArticle);
-    setIsLoading(false);
+    setIsLoadingTwo(false);
     }
-    fetchData();
-  }, [name, user]);
+    if(!isLoading) {
+      fetchData();
+    }
+  }, [ name, isLoading, user]);
 
   const addUpVote = async () => {
     const token = user && await user.getIdToken();
@@ -32,6 +34,7 @@ const Article = () => {
     const response = await axios.put(`/api/articles/${name}/upVotes`, null, {headers});
     const updatedArticle = response.data;
     setArticle(updatedArticle);
+    setIsUpvoted(false);
   }
 
   // Conditional rendering of tags
@@ -45,7 +48,7 @@ const Article = () => {
   // }
 // console.log(article.content.join(' '));
 
-  if (isLoading) {
+  if (isLoadingTwo) {
     return (
       <div className='article'>
         <hr />
@@ -63,7 +66,7 @@ const Article = () => {
         <h3>{article.title}</h3>
         <h6>This article has <span className='votes'> {article.upVotes} </span></h6>
         {user
-        ? <button onClick={addUpVote} className='btn btn-outline-primary col-5'>Add upvote</button>
+        ? <button onClick={addUpVote} className='btn btn-outline-primary col-5'>{isUpvoted ? 'Up-vote' : 'Already up-voted!'}</button>
         : <Link to='/sign-in'>{<button className='btn btn-outline-primary'>Log in to upvote</button>}</Link>}
         <h6>{article.tags.map((tag, i) => 
           <span key={i} className='tags'># {tag} </span>

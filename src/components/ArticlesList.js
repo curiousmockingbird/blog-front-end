@@ -6,9 +6,9 @@ import useUser from '../hooks/useUser';
 
 const ArticlesList = () => {
   const [articlesList, setArticlesList] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoadingTwo, setIsLoadingTwo] = useState(true);
   const [count, setCount] = useState(9);
-  const { user } = useUser();
+  const { user, isLoading } = useUser();
 
   useEffect(() => {
     // READ only the first 9 articles from collection
@@ -18,10 +18,12 @@ const ArticlesList = () => {
     const response = await axios.get('/api/articles-list/', { headers });
     const newArticlesList = response.data;
     setArticlesList(newArticlesList);
-    setIsLoading(false);
+    setIsLoadingTwo(false);
     }
-    fetchData();
-  }, [user]);
+    if(!isLoading) {
+      fetchData();
+    }
+  }, [user, isLoading]);
   
   // READ next 9 articles from collection, and so on
     const loadMore = async () => {
@@ -33,7 +35,7 @@ const ArticlesList = () => {
       setCount(count + 9);
     }
   
-  if (isLoading) {
+  if (isLoadingTwo) {
     return (
       <div className='row'>
           <h5>Loading...</h5>
