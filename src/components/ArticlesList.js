@@ -10,6 +10,7 @@ const ArticlesList = () => {
   const [isLoadingTwo, setIsLoadingTwo] = useState(true);
   const [count, setCount] = useState(9);
   const [explore, setExplore] = useState(false);
+  const [tag, setTag] = useState('');
   const { user, isLoading } = useUser();
 
   useEffect(() => {
@@ -27,10 +28,10 @@ const ArticlesList = () => {
     }
   }, [user, isLoading]);
   
-  // READ next 9 articles from collection, and so on
+    // READ next 9 articles from collection, and so on
     const loadMore = async () => {
       const token = user && await user.getIdToken();
-    const headers = token ? {authtoken: token} : {};
+      const headers = token ? {authtoken: token} : {};
       const response = await axios.get(`/api/articles-list/${count}/`, { headers });
       const newArticlesList = response.data;
       setArticlesList(newArticlesList);
@@ -41,6 +42,7 @@ const ArticlesList = () => {
       setExplore(true);
     }
 
+  
   // Search articles by popularity
   const searchByPopularity = async () => {
     const token = user && await user.getIdToken();
@@ -50,6 +52,20 @@ const ArticlesList = () => {
     setArticlesList(newArticlesList);
   }
 
+  // useEffect to search articles by tags once the tag state is updated
+  useEffect(() => {
+    const fetchData = async () => {
+      const token = user && await user.getIdToken();
+      const headers = token ? {authtoken: token} : {};
+      const response = await axios.get(`/api/${tag}`, { headers });
+      const newArticlesList = response.data;
+      setArticlesList(newArticlesList);
+    }
+    if(!isLoading) {
+      fetchData();
+    }
+  }, [tag, user, isLoading]);
+    
   if (isLoadingTwo) {
     return (
       <div className='row'>
@@ -61,16 +77,16 @@ const ArticlesList = () => {
     return (
       <>
       <header className='row mb-2 mt-2'>
-      <div className='p-5 text-center bg-image' style={{ backgroundImage: `url(${headerLight})`, height: 200, backgroundSize:"contain" }}>
+      <div className='text-center bg-image' style={{ backgroundImage: `url(${headerLight})`, height: 200, backgroundSize:"contain" }}>
           <div className='d-flex justify-content-center align-items-center h-100'>
             <div className='text-white'>
               <form className='form-inline'>
-                <input className='form-control mr-sm-2' type='search' placeholder='Search by tags' aria-label='Search' required/>
-                <button className='btn btn-outline-light btn-sm mt-2' type='submit'>Search</button>
+                <input className='form-control mr-sm-2' type='text' placeholder='Search by tag' required value={tag} onChange={(event) => setTag((event.target.value.toLowerCase()))}/>
               </form>
-            </div>
-              <p>or</p>
+            <div className='d-flex justify-content-center'>
               <button onClick={searchByPopularity} className='btn btn-outline-light btn-sm mt-2'>Search articles by popularity</button>
+            </div>
+            </div>
           </div>
       </div>
     </header>

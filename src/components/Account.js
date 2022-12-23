@@ -20,7 +20,7 @@ const Account = () => {
   return (
     <div className="account">
       <div className='d-flex justify-content-center'>
-        <h6>Bookmarked articles and other up-coming features here</h6>
+        <h6 className='text-center'>Bookmarked articles and other up-coming<br></br> will go features here</h6>
       </div>
       <div className='d-flex justify-content-center'>
         <h3>Sign Out</h3>
@@ -31,7 +31,7 @@ const Account = () => {
       <div className='d-flex justify-content-center'>
       {user
       ? <button onClick={doSignOut} className='btn btn-primary'>Sign out</button>
-      : <Link to='/sign-in'> {<button>Back to sign in page</button>} </Link>}
+      : <Link to='/sign-in'> {<button className='btn btn-primary'>Back to sign in page</button>} </Link>}
       </div>
     </div>
   )

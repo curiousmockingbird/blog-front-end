@@ -6,14 +6,14 @@ import Article from './Article';
 import ArticlesList from './ArticlesList';
 import Account from './Account';
 import About from './About';
-import Nav from './Nav';
+import NavbarComponent from './NavbarComponent';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const App = () => { 
   return (
     <div className="App container">
     <Router>
-      <div ><Nav /></div>
+      <NavbarComponent />
       <Routes>
         <Route path="/" element={<BlogControl /> } />
         <Route path="/sign-in" element={<SignIn /> } />
@@ -29,3 +29,4 @@ const App = () => {
 }
 
 export default App;
+

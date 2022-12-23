@@ -47,22 +47,6 @@ $button-margin: 1em;
 
 }
 
-.navbar {
-  font-size: 1.5rem;
-  background-color: $background-color;
-  a {
-    color: $primary-color;
-    text-decoration: none;
-  }
-
-  a:link {
-    text-decoration: none;
-  }
-
-  li {
-    display: inline-block;
-  }
-}
 
 .welcome {
   color: $primary-color;
@@ -128,6 +112,12 @@ $button-margin: 1em;
 .comment-section {
   color: $primary-color;
 }
+
+.nav-bg {
+  background-color: $background-color;
+}
+
+
 
 
 
